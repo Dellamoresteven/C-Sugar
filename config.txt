@@ -1,0 +1,8 @@
+header
+// author: Steven Dellamore
+// ^date
+// version: 1.0.0
+\
+includes
+#include <iostream>
+\
