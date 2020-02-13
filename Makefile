@@ -1,4 +1,4 @@
-make: extensions/main.cpp extensions/parser.cpp extensions/replacer.cpp extensions/largerFuncs/print.cpp 
+makem: extensions/main.cpp extensions/parser.cpp extensions/replacer.cpp extensions/largerFuncs/print.cpp 
 	g++ --std=c++2a -O3 -Wall -o run \
 				extensions/main.cpp \
 				extensions/parser.cpp \
@@ -11,6 +11,12 @@ make: extensions/main.cpp extensions/parser.cpp extensions/replacer.cpp extensio
 				extensions/largerFuncs/vector.cpp \
 				extensions/largerFuncs/push.cpp \
 				extensions/largerFuncs/comments.cpp
+
+testRunner: test/testRunner.cpp test/unit/var.cpp test/unit/vector.cpp 
+	g++ --std=c++2a -O3 -Wall -o tests \
+				test/testRunner.cpp \
+				test/unit/var.cpp \
+				test/unit/vector.cpp
 
 clean:
 	rm -f run

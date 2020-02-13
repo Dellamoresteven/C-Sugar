@@ -5,6 +5,10 @@ class Object {
 
 };
 
+// def int x() {
+
+// }
+
 int main() {
     var vecInt = vector int; 
     var vecStr = vector std::string;
@@ -19,7 +23,7 @@ int main() {
 
     printv(vecInt, ", ");
     print("\n");
-
+    
     print("vecIntpush(5): " + vecInt.at(0) + "\n");
     print("vecStr(0): " + vecStr.at(0) + "\n");
     print("vecStr(1): " + vecStr.at(1) + "\n");
