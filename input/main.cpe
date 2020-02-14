@@ -1,30 +1,11 @@
-@header
 #inc e
 
-class Object {
-
-};
-
-// def int x() {
-
-// }
-
 int main() {
-    var vecInt = vector int; 
-    var vecStr = vector std::string;
-    vecInt.push(5);
-    vecInt.push(6);
-    vecInt.push(7);
-    vecInt.push(8);
-    vecInt.push(9);
-    vecStr.push("Steve");
-    vecStr.push("john");
-    var * obj = new Object();
-
-    printv(vecInt, ", ");
+    var x = vector int;
+    x.push(5);
+    x.push(6);
+    x.push(7);
+    x.push(8);
+    printv(x, ", ");
     print("\n");
-    
-    print("vecIntpush(5): " + vecInt.at(0) + "\n");
-    print("vecStr(0): " + vecStr.at(0) + "\n");
-    print("vecStr(1): " + vecStr.at(1) + "\n");
 }

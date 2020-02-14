@@ -57,7 +57,10 @@ namespace token {
                 return;
             }
 
-            inline void skip( int skipAmount ) { index += skipAmount; }
+            inline void skip( int skipAmount ) { 
+                if(index + skipAmount < tokenList.size()){ index += skipAmount; } 
+                else index = tokenList.size();
+            }
 
             inline std::string next( ) { return tokenList.at( index++ ); }
 

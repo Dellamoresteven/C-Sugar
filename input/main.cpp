@@ -1,7 +1,3 @@
-// author: Steven Dellamore
-// date: 2020-2-13
-// version: 1.0.0
-
 #include <iostream>
 #include <stdlib.h>
 #include <fstream>
@@ -17,37 +13,17 @@
 #include <sstream>
 #include <iterator>
 
-class Object {
-
-};
-
-// def int x() {
-
-// }
-
 int main() {
-    // vecInt @TODO
-    auto vecInt = std::vector< int >(); // This vector @TODO 
-    // vecStr @TODO
-    auto vecStr = std::vector< std::string >(); // This vector @TODO
-    vecInt.push_back(5);
-    vecInt.push_back(6);
-    vecInt.push_back(7);
-    vecInt.push_back(8);
-    vecInt.push_back(9);
-    vecStr.push_back("Steve");
-    vecStr.push_back("john");
-    // obj @TODO
-    auto * obj = new Object();
-
-    // Printing out the entire vecInt vector with delim: ", "
-    for (auto i = vecInt.begin(); i != vecInt.end(); ++i)
+    // x @TODO
+    auto x = std::vector< int >(); // This vector @TODO
+    x.push_back(5);
+    x.push_back(6);
+    x.push_back(7);
+    x.push_back(8);
+    // Printing out the entire x vector with delim: ", "
+    for (auto i = x.begin(); i != x.end(); ++i)
     {
         std::cout << *i << ", ";
     }
     std::cout << "\n";
-    
-    std::cout << "vecIntpush(5): " << vecInt.at(0) << "\n";
-    std::cout << "vecStr(0): " << vecStr.at(0) << "\n";
-    std::cout << "vecStr(1): " << vecStr.at(1) << "\n";
 }
