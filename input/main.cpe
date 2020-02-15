@@ -1,11 +1,8 @@
 #inc e
 
-int main() {
+int main(){ 
     var x = vector int;
-    x.push(5);
-    x.push(6);
-    x.push(7);
-    x.push(8);
-    printv(x, ", ");
+    x.push(1,2,3,4,5);
+    printv(x, " ");
     print("\n");
 }

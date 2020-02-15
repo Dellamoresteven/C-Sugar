@@ -19,16 +19,18 @@ std::string peekNoSpace, peekNoSpace1, peekNoSpace2 - looks at tokens ahead that
 namespace token {
     class TokenObject {
         private:
-            std::vector<std::string> tokenList;
-            int index;
+            std::vector<std::string> tokenList; // Holds the split up code
+            int index; // Where we are at in the token list
 
         public:
             // default Delim list. This can be changed if need be. see @print
-            std::vector<std::string> delim{ " ", "(", ")", "{", "}", "\n", ";", "@", "#", "." };
+            std::vector<std::string> delim{ " ", "(", ")", "{", "}", "\n", ";", "@", "#", ".", "=>" };
              
+            /* Setting index = 0 at the start of the object */
             TokenObject() 
                 : index(0){}
 
+            /* Basic De-contor default */
             virtual ~TokenObject() = default;
 
             inline void push( std::string strToken ) {
@@ -57,6 +59,16 @@ namespace token {
                 return;
             }
 
+            /**
+             * skip - Skips by a certain amount in the token list. 
+             *        If the length of the skip amount is too large 
+             *        i.e index+skipAmount > tokenList.size() we set it = 
+             *        to the end of the token list.
+             * 
+             * @param - int skipAmount: Amount to skip by
+             *
+             * @return - void 
+             */
             inline void skip( int skipAmount ) { 
                 if(index + skipAmount < tokenList.size()){ index += skipAmount; } 
                 else index = tokenList.size();
@@ -157,8 +169,24 @@ namespace token {
                 return;
             }
 
+            /**
+             * hasNext - Checks to see if there is more to the token list
+             *
+             * @param - void
+             *
+             * @return - bool
+             *           true  - has more elements
+             *           false - at the end of the tokenList
+             */
             inline bool hasNext( ) { return (index != tokenList.size()); }
 
+            /**
+             * checkIndentLength - Checks how many spaces are in the current line
+             *
+             * @param - void
+             *
+             * @return - int: How many spaces the current line is indented
+             */
             inline int checkIndentLength() {
                 int ret = 0;
                 for(int i = index; i > 0; i--) {

@@ -29,7 +29,6 @@ void parser::ReplacerObject::printv( token::TokenObject * newtoken ) {
     newtoken->push("std::cout << *i << \"" + delim + "\";\n");
     indenter(token, newtoken);
     newtoken->push("}");
-    // std::cout << "inside: " << inside << std::endl;
 
     token->readUntilDelim( "(", ";" );
 }

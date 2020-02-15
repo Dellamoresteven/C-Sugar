@@ -24,7 +24,7 @@ namespace parser {
              * VARIABLES
              */
             std::ifstream *ffile; // file object we are reading from
-            const std::vector<std::string> delim{ " ", "(", ")", "{", "}", "\n", ";", "@", "#" }; // Delim list
+            const std::vector<std::string> delim{ " ", "(", ")", "{", "}", "\n", ";", "@", "#", "=>" }; // Delim list
             const std::vector<std::string> keyWords{ "main" }; // keywords to look for
             token::TokenObject * token;
         public:
@@ -46,6 +46,41 @@ namespace parser {
             std::vector< std::string > cppFileTokenList;
             token::TokenObject * token;
             std::string filepath;
+
+            /**
+             * parseByDelim - Takes in a string that you are trying to parse,
+             *                and a list of delims.
+             *
+             * @param - string str:      String you want to parse
+             * @param - Params... param: The delim list you want to parse with
+             * 
+             * @return - vector<string> of the split string
+             *
+             * @example - parseByDelim("This-Is-My-Example", "-");
+             *            returns -> std::vector<std::string>("This","Is","My","Example")
+             */
+            template<typename ... Params>
+            inline std::vector<std::string> parseByDelim(std::string str, Params... params) {
+                std::vector<std::string> ret;
+                std::string tok = "";
+                // std::cout << "str=>:" << str << std::endl;
+                for(int i = 0; i < str.length(); i++) {
+                    for (auto x : { params... }) {
+                        std::string f(x);
+                        if(str.at(i) == f.at(0)){
+                            ret.push_back( tok );
+                            tok = "";
+                        } else {
+                            tok += str.at(i);
+                        }
+                    }
+                }
+                if(tok != ""){
+                    ret.push_back( tok );
+                }
+                return ret;
+            }
+
         public:
             /**
              * FUNCTIONS
