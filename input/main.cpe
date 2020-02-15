@@ -3,6 +3,6 @@
 int main(){ 
     var x = vector int;
     x.push(1,2,3,4,5);
-    printv(x, " ");
+    printv(x, ",");
     print("\n");
 }

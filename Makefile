@@ -20,3 +20,4 @@ testRunner: test/testRunner.cpp test/unit/var.cpp test/unit/vector.cpp
 
 clean:
 	rm -f run
+	rm -f tests

@@ -3,7 +3,13 @@
 void parser::ReplacerObject::printv( token::TokenObject * newtoken ) {
     std::string inside = token->getUntilToken( "(", ")" );
     std::string vecName = inside.substr(0, inside.find(","));
-    std::string rest = inside.substr(inside.find(","));
+    std::cout << "EAFEAW " << inside.find(",") << std::endl;
+    
+    std::string rest = "";
+    if( inside.find(",") != std::string::npos ) {
+        rest = inside.substr(inside.find(","));
+    }
+    
     std::string delim = "";
     bool first = true;
     for(int i = 0; i < rest.length(); i++){

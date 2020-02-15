@@ -22,10 +22,10 @@ int main(){
     x.push_back(4); // pushing 4 onto x
     x.push_back(5); // pushing 5 onto x
 
-    // Printing out the entire x vector with delim: " "
+    // Printing out the entire x vector with delim: ","
     for (auto i = x.begin(); i != x.end(); ++i)
     {
-        std::cout << *i << " ";
+        std::cout << *i << ",";
     }
     std::cout << "\n";
 }
