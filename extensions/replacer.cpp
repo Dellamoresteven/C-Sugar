@@ -2,13 +2,19 @@
 
 void parser::ReplacerObject::replaceTokenList() {
     token::TokenObject * newToken = new token::TokenObject();
+    bool isComment = false;
     while( token->hasNext() ) {
         std::string tok = token->next();
         // std::cout << "TOK: " << tok << std::endl;
 
         if(tok == " " || tok == "\n"){
+            if(tok == "\n") isComment = false;
             newToken->push(tok);
         } 
+        else if( (isComment) || tok == "//" ) {
+            isComment = true;
+            newToken->push(tok);
+        }
         else if( (tok == "@" && (token->peekNoSpace() == "header") ) ) {
             /* The "#inc e" */
             parser::ReplacerObject::headerComment( newToken );

@@ -21,11 +21,6 @@ void parser::ConfigReaderObject::readConfigFile() {
             value += c;
         }
     }
-    // int i = 0;
-    // for(auto it = mapper.cbegin(); it != mapper.cend(); ++it) {
-    //     std::cout << "i: " << i << "\n" << it->first << "\n" << it->second;
-    //     i++;
-    // }
 }
 
 std::string parser::ConfigReaderObject::getConfig( std::string key ) {
