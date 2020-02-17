@@ -169,6 +169,16 @@ namespace token {
                 return;
             }
 
+            inline void readUntilDelim( std::string to ) {
+                for(int i = index; i < tokenList.size(); i++) {
+                    if( tokenList.at(i) == to ){
+                        index = ++i;
+                        return;
+                    }
+                }
+                return;
+            }
+
             /**
              * hasNext - Checks to see if there is more to the token list
              *

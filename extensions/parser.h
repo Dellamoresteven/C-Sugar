@@ -101,6 +101,7 @@ namespace parser {
             void vector( token::TokenObject * );
             void push( token::TokenObject * );
             void headerComment( token::TokenObject * );
+            void functionDef( token::TokenObject * );
     };
 
     class FileWriterObject {

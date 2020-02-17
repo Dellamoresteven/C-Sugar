@@ -60,7 +60,7 @@ int main(int argc, char* agrv[]) {
     std::cout << "\n\nCompiling\n";
     std::string bash(agrv[1]);
     std::string bashSub = bash.substr( 0, bash.rfind( '.' ) ) + ".cpp";
-    bashSub = "g++ --std=c++11 -o " + bash.substr( 0, bash.rfind( '/' ) + 1 ) + "run " + bashSub;
+    bashSub = "g++ --std=c++2a -o " + bash.substr( 0, bash.rfind( '/' ) + 1 ) + "run " + bashSub;
     std::cout << bashSub;
     std::system(bashSub.c_str());
     std::cout << "\nRunning\n";

@@ -10,7 +10,8 @@ makem: extensions/main.cpp extensions/parser.cpp extensions/replacer.cpp extensi
 				extensions/largerFuncs/replaceVar.cpp \
 				extensions/largerFuncs/vector.cpp \
 				extensions/largerFuncs/push.cpp \
-				extensions/largerFuncs/comments.cpp
+				extensions/largerFuncs/comments.cpp \
+				extensions/largerFuncs/functions/functionDef.cpp
 
 testRunner: test/testRunner.cpp test/unit/var.cpp test/unit/vector.cpp 
 	g++ --std=c++2a -O3 -Wall -o tests \
