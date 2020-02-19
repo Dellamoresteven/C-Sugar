@@ -28,6 +28,10 @@ void parser::ReplacerObject::replaceTokenList() {
             /* The "print(...);" to std::cout << ...; */
             parser::ReplacerObject::print( newToken );
         }
+        else if( (tok == "println") && (token->peekNoSpace() == "(")) {
+            /* The "print(...);" to std::cout << ...; */
+            parser::ReplacerObject::println( newToken );
+        }
         else if( (tok == "var") ) {
             /* The "#inc e" */
             parser::ReplacerObject::replaceVar( newToken );

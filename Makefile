@@ -5,6 +5,7 @@ makem: extensions/main.cpp extensions/parser.cpp extensions/replacer.cpp extensi
 				extensions/replacer.cpp \
 				extensions/configReader.cpp \
 				extensions/largerFuncs/print.cpp \
+				extensions/largerFuncs/println.cpp \
 				extensions/largerFuncs/printv.cpp \
 				extensions/largerFuncs/replaceIncludes.cpp \
 				extensions/largerFuncs/replaceVar.cpp \

@@ -119,6 +119,7 @@ namespace parser {
             void replaceVar( token::TokenObject * );
             void print( token::TokenObject * ); 
             void printv( token::TokenObject * );        // print vector
+            void println( token::TokenObject * );
             void vector( token::TokenObject * );
             void push( token::TokenObject * );
             void headerComment( token::TokenObject * );

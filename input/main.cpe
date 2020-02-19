@@ -2,9 +2,9 @@
 #inc e
 
 def add( a, b, c, d ) {
-    print("\n");
+    println();
     printv(d,",");
-    print("\n");
+    println("");
     return (a + b + c);
 }
 

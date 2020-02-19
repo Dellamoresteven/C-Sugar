@@ -21,13 +21,13 @@
 
 template < typename T, typename U, typename G, typename H >
 auto add( T a, U b, G c, H d ) {
-    std::cout << "\n";
+    std::cout << std::endl;
     // Printing out the entire d vector with delim: ","
     for (auto i = d.begin(); i != d.end(); ++i)
     {
         std::cout << *i << ",";
     }
-    std::cout << "\n";
+    std::cout << "" << std::endl;
     return (a + b + c);
 }
 

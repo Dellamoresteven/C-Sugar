@@ -102,7 +102,6 @@ void parser::ReplacerObject::writeFunctionDef( FunDef f, token::TokenObject * ne
     int numOfTemp = 0;
     for (auto it = f.params.begin(); it!=f.params.end(); ++it) {
         if( (*it).second.length() == 4 && (*it).second.substr(0,3) == "any") {
-            std::cout << stoi( (*it).second.substr( 3, 4 ) ) << " I\n";
             if( numOfTemp < stoi( (*it).second.substr( 3, 4 ) ) ) {
                 numOfTemp = stoi( (*it).second.substr( 3, 4 ) );
             }
