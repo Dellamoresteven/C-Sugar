@@ -1,21 +1,17 @@
 @header
 #inc e
 
-def autoRet() {
-}
-
-def withParams( auto x, auto y ) {
-}
-
-def int intRet() {
-}
-
-def int intRetWithParams( auto a, auto b ) {
+def add( a, b, c, d ) {
+    print("\n");
+    printv(d,",");
+    print("\n");
+    return (a + b + c);
 }
 
 int main(){ 
     var x = vector int;
     x.push(1,2,3,4,5);
     printv(x, ",");
-    print("\n");
+    var y = add( 1, 2, 3, x );
+    print( "\n" + y + "\n");
 }

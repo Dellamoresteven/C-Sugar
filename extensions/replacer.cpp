@@ -56,7 +56,12 @@ void parser::ReplacerObject::replaceTokenList() {
 
     parser::FileWriterObject * writer = new parser::FileWriterObject( newToken, filepath );
     writer->write();
-    std::cout << "newTokenList: ";
+    std::cout << "\nnewTokenList: " << magenta;
     newToken->printVector();
+    std::cout << normal <<"\nFunctionList: \n";
+    for (auto itr = functionList.begin(); itr != functionList.end(); ++itr) { 
+        cout  << green << itr->first << normal <<"\n";
+    } 
+    cout << endl; 
     delete newToken;
 }

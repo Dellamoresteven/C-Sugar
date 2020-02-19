@@ -19,7 +19,8 @@ void parser::ParserObject::parseFile(std::ifstream& ffstream) {
         token->push(line);
     }
     /* Print the token vector out */
-    std::cout << "oldTokenList: ";
+    std::cout << "oldTokenList: " << magenta;
     token->printVector();
+    std::cout << normal;
 }
 

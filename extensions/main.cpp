@@ -67,5 +67,4 @@ int main(int argc, char* agrv[]) {
     bashSub = bash.substr( 0, bash.rfind( '/' ) + 1 ) + "run";
     bashSub = "./" + bashSub;
     std::system(bashSub.c_str());
-    
 }

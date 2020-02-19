@@ -17,6 +17,26 @@
 
 using namespace std;
 
+
+struct FunDef {
+    std::string functionName                        = "";    // functionName
+    std::string returnType                          = "";    // return type of the function
+    std::map<std::string, std::string> params;               // var name, type
+    bool isTemplate                                 = false; // if the function is template
+    int numTemplateVars                             = 1;     // number of any's. i.e any1 any2 any3 
+
+    void print() {
+        std::cout << "rt: " << returnType << "\n";
+        std::cout << "FunctionName: " << functionName << "\n";
+        std::cout << "isTemplate: " << isTemplate << "\n";
+        for(auto elem : params) {
+            std::cout << elem.first << " " << elem.second << "\n";
+        }
+        std::cout << std::endl;
+    }
+};
+
+
 namespace parser {
     class ParserObject {
         private: 
@@ -46,6 +66,7 @@ namespace parser {
             std::vector< std::string > cppFileTokenList;
             token::TokenObject * token;
             std::string filepath;
+            multimap<std::string, FunDef> functionList; // function name, functionDef
 
             /**
              * parseByDelim - Takes in a string that you are trying to parse,
@@ -102,6 +123,7 @@ namespace parser {
             void push( token::TokenObject * );
             void headerComment( token::TokenObject * );
             void functionDef( token::TokenObject * );
+            void writeFunctionDef( FunDef, token::TokenObject * );
     };
 
     class FileWriterObject {

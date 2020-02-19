@@ -8,6 +8,9 @@
 #include <functional> 
 #include <algorithm>
 
+#define green "\u001b[32m"
+#define normal "\033[0m"
+#define magenta "\u001b[35m"
 
 /************
 void push(std::string) - pushes a string onto the tokenlist
