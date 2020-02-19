@@ -16,4 +16,5 @@ void parser::ReplacerObject::replaceIncludes( token::TokenObject * newtoken ){
     newtoken->push("#include <map>\n");
     newtoken->push("#include <sstream>\n");
     newtoken->push("#include <iterator>\n");
+    newtoken->push("#include <string>\n");
 }

@@ -81,7 +81,8 @@ void parser::ReplacerObject::functionDef( token::TokenObject * newtoken ) {
                 } else if( fullParam == "any1" || fullParam == "any2" || fullParam == "any3" || fullParam == "any4" ) {
                     fundef.isTemplate = true;
                 }
-                fundef.params[tok] = fullParam;
+                // std::cout << "tok: " << tok << " : " << "fullParam: " << fullParam << "\n";
+                fundef.paramss.push( std::pair<std::string, std::string>( tok, fullParam ) );
                 fullParam = "";
             } else if( tok == "," || tok == ")" ) {
                 fullParam = "";
@@ -92,6 +93,7 @@ void parser::ReplacerObject::functionDef( token::TokenObject * newtoken ) {
     }
     // fundef.print();
     functionList.insert(pair <std::string, FunDef> (fundef.functionName, fundef));
+    // fundef.print();
     token->readUntilDelim( "{" );
     writeFunctionDef( fundef, newtoken );
     delete insideToken;
@@ -100,30 +102,36 @@ void parser::ReplacerObject::functionDef( token::TokenObject * newtoken ) {
 
 void parser::ReplacerObject::writeFunctionDef( FunDef f, token::TokenObject * newtoken ) {
     int numOfTemp = 0;
-    for (auto it = f.params.begin(); it!=f.params.end(); ++it) {
-        if( (*it).second.length() == 4 && (*it).second.substr(0,3) == "any") {
-            if( numOfTemp < stoi( (*it).second.substr( 3, 4 ) ) ) {
-                numOfTemp = stoi( (*it).second.substr( 3, 4 ) );
+    std::string templateString = "TUGHYKVMNACE";
+    std::string argsStr = "";
+    while( !f.paramss.empty() ){
+        std::string name = f.paramss.front().first;
+        std::string typ = f.paramss.front().second;
+        if( typ.length() == 4 && typ.substr( 0, 3 ) == "any" ) {
+            if( numOfTemp < stoi( typ.substr( 3, 4 ) ) ) {
+                numOfTemp = stoi( typ.substr( 3, 4 ) );
             }
+            argsStr += templateString.at( stoi( typ.substr( 3, 4 ) ) - 1 );
+        } else {
+            argsStr += typ;
         }
+        argsStr += " ";
+        argsStr += (name + ", ");
+        f.paramss.pop();
     }
-    numOfTemp++;
     if( f.isTemplate ) {
-        if( numOfTemp == 1 ) newtoken->push( "template < typename T >\n" );
-        if( numOfTemp == 2 ) newtoken->push( "template < typename T, typename U >\n" );
-        if( numOfTemp == 3 ) newtoken->push( "template < typename T, typename U, typename G >\n" );
-        if( numOfTemp == 4 ) newtoken->push( "template < typename T, typename U, typename G >\n" );
-        if( numOfTemp == 5 ) newtoken->push( "template < typename T, typename U, typename G, typename H >\n" );
+        std::string templatePrint = "template <";
+        for( int i = 0; i < numOfTemp; i++ ) {
+            templatePrint += "typename ";
+            templatePrint += templateString.at( i );
+            templatePrint += ", ";
+        }
+        templatePrint = templatePrint.substr( 0, templatePrint.length() - 2 );
+        templatePrint += " >\n";
+        newtoken->push( templatePrint );
     }
     newtoken->push( f.returnType + " " + f.functionName + "( ");
-    std::string argsStr = "";
-    for (auto it = f.params.begin(); it!=f.params.end(); ++it) {
-        if( (*it).second == "any1" ) argsStr += ( "T " + (*it).first + ", ");
-        else if( (*it).second == "any2" ) argsStr += ( "U " + (*it).first + ", ");
-        else if( (*it).second == "any3" ) argsStr += ( "G " + (*it).first + ", ");
-        else if( (*it).second == "any4" ) argsStr += ( "H " + (*it).first + ", ");
-        else argsStr += ( (*it).second + " " + (*it).first + ", ");
-    }
+    
     newtoken->push( argsStr.substr( 0, argsStr.length() - 2 ) );
     newtoken->push(" ) {");
 }

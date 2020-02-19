@@ -12,6 +12,8 @@
 #include <sstream>
 #include <algorithm>
 #include <iterator>
+#include <unordered_map>
+#include <queue>
 
 #include "token.h"
 
@@ -19,18 +21,21 @@ using namespace std;
 
 
 struct FunDef {
-    std::string functionName                        = "";    // functionName
-    std::string returnType                          = "";    // return type of the function
-    std::map<std::string, std::string> params;               // var name, type
-    bool isTemplate                                 = false; // if the function is template
-    int numTemplateVars                             = 1;     // number of any's. i.e any1 any2 any3 
+    std::string functionName                                 = "";    // functionName
+    std::string returnType                                   = "";    // return type of the function
+    // std::unordered_map<std::string, std::string> params;              // var name, type
+    std::queue< pair< std::string, std::string > > paramss;           // var pair<name, type>
+    bool isTemplate                                          = false; // if the function is template
+    int numTemplateVars                                      = 1;     // number of any's. i.e any1 any2 any3 
 
     void print() {
         std::cout << "rt: " << returnType << "\n";
         std::cout << "FunctionName: " << functionName << "\n";
         std::cout << "isTemplate: " << isTemplate << "\n";
-        for(auto elem : params) {
-            std::cout << elem.first << " " << elem.second << "\n";
+        std::queue< pair< std::string, std::string > > copyParamss = paramss;
+        while (!copyParamss.empty()) {
+            std::cout << copyParamss.front().first << " " << copyParamss.front().second << "\n";
+            copyParamss.pop();
         }
         std::cout << std::endl;
     }
