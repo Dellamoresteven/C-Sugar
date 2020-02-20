@@ -2,7 +2,7 @@
 URL = https://github.com/Dellamoresteven/C-Sugar */
 
 // author: Steven Dellamore
-// date: 2020-2-19
+// date: 2020-2-20
 // version: 1.0.0
 
 #include <iostream>
@@ -19,16 +19,17 @@ URL = https://github.com/Dellamoresteven/C-Sugar */
 #include <map>
 #include <sstream>
 #include <iterator>
+#include <string>
 
-template < typename T, typename U, typename G, typename H >
+template <typename T, typename U, typename G, typename H >
 auto add( T a, U b, G c, H d ) {
-    std::cout << std::endl;
+    // println();
     // Printing out the entire d vector with delim: ","
     for (auto i = d.begin(); i != d.end(); ++i)
     {
         std::cout << *i << ",";
     }
-    std::cout << "" << std::endl;
+    // println("");
     return (a + b + c);
 }
 
@@ -40,7 +41,6 @@ int main(){
     x.push_back(3); // pushing 3 onto x
     x.push_back(4); // pushing 4 onto x
     x.push_back(5); // pushing 5 onto x
-
     // Printing out the entire x vector with delim: ","
     for (auto i = x.begin(); i != x.end(); ++i)
     {
@@ -48,5 +48,6 @@ int main(){
     }
     // y @TODO
     auto y = add( 1, 2, 3, x );
-    std::cout <<  "\n" << y << "\n";
+    std::cout <<  "\n" ;
+    std::cout << y << std::endl;
 }

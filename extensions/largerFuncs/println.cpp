@@ -2,12 +2,20 @@
 
 void parser::ReplacerObject::println( token::TokenObject * newtoken ) {
     std::string inside = token->getUntilToken( "(", ";" );
-    std::cout << "inside: " << inside << std::endl;
-    if( inside.find("\"") == std::string::npos ) {
+
+    bool checkIfAllSpaces = true;
+    for(auto c : inside ){
+        if(c != ' ') {
+            checkIfAllSpaces = false;
+        }
+    }
+    if( checkIfAllSpaces ) {
         newtoken->push("std::cout << std::endl;");
-        token->readUntilDelim( "(", ";" ); 
+        token->readUntilDelim( "(", ";" );
+        std::cout << "EAFAEWF\n\n";
         return;
     }
+
     int quoteStatus = 0;
     std::string tok = "";
     newtoken->push("std::cout << ");

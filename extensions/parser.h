@@ -125,7 +125,7 @@ namespace parser {
             void printv( token::TokenObject * );        // print vector
             void println( token::TokenObject * );
             void vector( token::TokenObject * );
-            void push( token::TokenObject * );
+            void pushv( token::TokenObject * );
             void headerComment( token::TokenObject * );
             void functionDef( token::TokenObject * );
             void writeFunctionDef( FunDef, token::TokenObject * );

@@ -10,7 +10,7 @@ makem: extensions/main.cpp extensions/parser.cpp extensions/replacer.cpp extensi
 				extensions/largerFuncs/replaceIncludes.cpp \
 				extensions/largerFuncs/replaceVar.cpp \
 				extensions/largerFuncs/vector.cpp \
-				extensions/largerFuncs/push.cpp \
+				extensions/largerFuncs/pushv.cpp \
 				extensions/largerFuncs/comments.cpp \
 				extensions/largerFuncs/functions/functionDef.cpp
 
@@ -27,7 +27,7 @@ testRunner: test/testRunner.cpp test/unit/tests.cpp
 				extensions/largerFuncs/replaceIncludes.cpp \
 				extensions/largerFuncs/replaceVar.cpp \
 				extensions/largerFuncs/vector.cpp \
-				extensions/largerFuncs/push.cpp \
+				extensions/largerFuncs/pushv.cpp \
 				extensions/largerFuncs/comments.cpp \
 				extensions/largerFuncs/functions/functionDef.cpp
 

@@ -1,0 +1,18 @@
+
+
+int main() {
+    var x = 5;
+    print(x);
+    println(x);
+
+    print(x + "Hello");
+    println(x + "hello");
+
+    var y = 6;
+    
+    print("x: " + x + " y: " + y);
+    println("x: " + x + " y: " + y);
+
+    print("Hello " + "My " + "Name " + "Is " + "John " + "Doe\n");
+    println("Hello " + "My " + "Name " + "Is " + "John " + "Doe");
+}

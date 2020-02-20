@@ -14,6 +14,8 @@ int main(int argc, char * argv[]){
         if(argv1 == "all") {
             tests::varTests::runTests();
             tests::vectorTests::runTests();
+            tests::functionTests::runTests();
+            tests::printTests::runTests();
         } else if(argv1 == "var") {
             tests::varTests::runTests();
         } else if(argv1 == "vector") {

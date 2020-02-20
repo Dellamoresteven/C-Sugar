@@ -1,0 +1,44 @@
+#inc e
+
+def autoRet() {
+    var x = 6;
+}
+
+def withParams( int x, bool y ) {
+}
+
+def int intRet () {
+}
+
+def int intRetWithParams( steven, john ) {
+}
+
+def int intRetWithParams1(int steven, std::string john) {
+}
+
+def int intWithNoTypeParam( a, b ) {
+}
+
+def int intWithNoTypeParam1(a, b) {
+}
+
+def int intWithAny1TypeParam( any1 a, any1 b ) {
+}
+
+def int intWithAny12TypeParam( any1 a, any2 b ) {
+}
+
+def int intWithAny12TypeParam( any1 a, any2 b, any3 c, any4 d ) {
+}
+
+def add( a, b, c, d ) {
+    return (a + b + c + d);
+}
+
+int normalFunction(int x, int y) {
+    return 7;
+}
+
+int normalVoidFunction() {
+    return 7;
+}

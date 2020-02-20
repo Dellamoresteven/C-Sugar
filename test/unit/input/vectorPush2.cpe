@@ -1,0 +1,4 @@
+int main() {
+    auto vec = vector int;
+    vec.pushv(1, 2, 3, 4, 5);
+}

@@ -2,16 +2,17 @@
 #inc e
 
 def add( a, b, c, d ) {
-    println();
+    // println();
     printv(d,",");
-    println("");
+    // println("");
     return (a + b + c);
 }
 
 int main(){ 
     var x = vector int;
-    x.push(1,2,3,4,5);
+    x.pushv(1,2,3,4,5);
     printv(x, ",");
     var y = add( 1, 2, 3, x );
-    print( "\n" + y + "\n");
+    print( "\n" );
+    println(y);
 }

@@ -1,0 +1,11 @@
+class object {
+
+}
+
+int main() {
+    var a;
+    var b = 5;
+    var c = 5+5*5;
+    var d = "Hello world";
+    var e = object();
+}

@@ -53,6 +53,9 @@ var x = 5;
 print("I am X " + x + " this is my value");
 ```
 
+### println();
+Just like print(), but prints a newline after. 
+
 ### printv();
 printv() helps you print out a vector with a delim. 
 
@@ -81,10 +84,10 @@ create a bool vector:
 This helps you push things into your vectors.
 
 push one thing:
-`vec.push(3);`
+`vec.pushv(3);`
 
 push 4 things:
-`vec.push(3,4,5,6);`
+`vec.pushv(3,4,5,6);`
 
 ## Help!
 If you are able to read through my code, I would love some tips. I am also looking for people to contribute, so please let me know!

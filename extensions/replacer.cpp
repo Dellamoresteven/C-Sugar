@@ -40,9 +40,9 @@ token::TokenObject* parser::ReplacerObject::replaceTokenList() {
             /* The "#inc e" */
             parser::ReplacerObject::vector( newToken );
         }
-        else if( (tok == "push") && (token->peekNoSpace() == "(") && token->lastNoSpace() == "." ) {
+        else if( (tok == "pushv") && (token->peekNoSpace() == "(") && token->lastNoSpace() == "." ) {
             /* The ".push(" */
-            parser::ReplacerObject::push( newToken );
+            parser::ReplacerObject::pushv( newToken );
         }
         else if( (tok == "printv") && (token->peekNoSpace() == "(") ) {
             /* The ".push(" */
