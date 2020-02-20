@@ -24,7 +24,7 @@ int main(int argc, char* agrv[]) {
     parser::ParserObject * parser = new parser::ParserObject( token );
 
     // Creating my replacing object
-    parser::ReplacerObject * replacer = new parser::ReplacerObject( token, agrv[1] );
+    parser::ReplacerObject * replacer = new parser::ReplacerObject( token );
 
     if( argc == 1 ){
         usage();
@@ -39,7 +39,17 @@ int main(int argc, char* agrv[]) {
             // Start the parser
             parser->parseFile( ffile );
             // Start replacing syntex sugar
-            replacer->replaceTokenList();
+            token::TokenObject * newToken = replacer->replaceTokenList();
+            std::cout << "\nnewTokenList: " << magenta;
+            newToken->printVector();
+            std::cout << normal <<"\nFunctionList: \n";
+            for (auto itr = replacer->functionList.begin(); itr != replacer->functionList.end(); ++itr) { 
+                cout  << green << itr->first << normal <<"\n";
+            } 
+            cout << endl;
+
+            parser::FileWriterObject * writer = new parser::FileWriterObject( newToken, agrv[1] );
+            writer->write();
         } else {
             // call specific error here
         }

@@ -23,7 +23,6 @@ using namespace std;
 struct FunDef {
     std::string functionName                                 = "";    // functionName
     std::string returnType                                   = "";    // return type of the function
-    // std::unordered_map<std::string, std::string> params;              // var name, type
     std::queue< pair< std::string, std::string > > paramss;           // var pair<name, type>
     bool isTemplate                                          = false; // if the function is template
     int numTemplateVars                                      = 1;     // number of any's. i.e any1 any2 any3 
@@ -71,7 +70,6 @@ namespace parser {
             std::vector< std::string > cppFileTokenList;
             token::TokenObject * token;
             std::string filepath;
-            multimap<std::string, FunDef> functionList; // function name, functionDef
 
             /**
              * parseByDelim - Takes in a string that you are trying to parse,
@@ -108,6 +106,8 @@ namespace parser {
             }
 
         public:
+            multimap<std::string, FunDef> functionList; // function name, functionDef
+
             /**
              * FUNCTIONS
              */
@@ -115,11 +115,10 @@ namespace parser {
 
             virtual ~ReplacerObject() = default;
 
-            ReplacerObject( token::TokenObject * token, std::string filepath ) 
-            : token(token),
-              filepath(filepath){}
+            ReplacerObject( token::TokenObject * token ) 
+            : token(token){}
 
-            void replaceTokenList();
+            token::TokenObject* replaceTokenList();
             void replaceIncludes( token::TokenObject * );
             void replaceVar( token::TokenObject * );
             void print( token::TokenObject * ); 
