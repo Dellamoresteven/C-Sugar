@@ -10,12 +10,17 @@
 
 
 int main(int argc, char* agrv[]) {
+    // Usage lambda
+    auto usage = [](){ std::cout << "Usage: cpe [file.cpe]" << std::endl; };
+
+    if( argc == 1 ){
+        usage();
+        return 0;
+    }  
+
     clock_t begin = clock();
     // Create my file object
     std::ifstream ffile;
-
-    // Usage lambda
-    auto usage = [](){ std::cout << "Usage: gee [file.ce] -output [exe]" << std::endl; };
 
     // Creating my token object
     token::TokenObject * token = new token::TokenObject( );
@@ -34,10 +39,7 @@ int main(int argc, char* agrv[]) {
     // std::cout << s_cwd << "\n";
     // return 1;
 
-    if( argc == 1 ){
-        usage();
-        return 0;
-    } else if( argc == 2 ) {
+    if( argc == 2 ) {
         /**
         * Fastest way to check if a file exists. 
         */ 

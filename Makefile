@@ -32,5 +32,5 @@ testRunner: test/testRunner.cpp test/unit/tests.cpp
 				extensions/largerFuncs/functions/functionDef.cpp
 
 clean:
-	rm -f run
+	rm -f cpe
 	rm -f tests
