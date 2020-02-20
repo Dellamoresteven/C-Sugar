@@ -1,0 +1,5 @@
+int main() {
+    auto vec = vector int;
+    auto vec1 = vector std::string;
+    auto vec2 = vector bool;
+}

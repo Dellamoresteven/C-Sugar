@@ -6,12 +6,9 @@
 #include "unit/tests.cpp"
 
 
-// #define blue and normal color
-#define green "\u001b[32m"
-#define normal "\033[0m"
-
 int main(int argc, char * argv[]){ 
     std::cout << "Running Tests\n";
+    // system("make");
     if(argc > 1) {
         std::string argv1(argv[1]);
         if(argv1 == "all") {

@@ -54,7 +54,32 @@ int main(int argc, char* agrv[]) {
             // call specific error here
         }
     } else if( argc == 3 ) {
+        /**
+        * Fastest way to check if a file exists. 
+        */
+        std::cout.setstate(std::ios_base::failbit);
+        struct stat buffer; 
+        if ( stat( agrv[1], &buffer ) == 0 ) { 
+            // Open the file
+            ffile.open( agrv[1] );
+            // Start the parser
+            parser->parseFile( ffile );
+            // Start replacing syntex sugar
+            token::TokenObject * newToken = replacer->replaceTokenList();
+            std::cout << "\nnewTokenList: " << magenta;
+            newToken->printVector();
+            std::cout << normal <<"\nFunctionList: \n";
+            for (auto itr = replacer->functionList.begin(); itr != replacer->functionList.end(); ++itr) { 
+                cout  << green << itr->first << normal <<"\n";
+            } 
+            cout << endl;
 
+            parser::FileWriterObject * writer = new parser::FileWriterObject( newToken, agrv[1] );
+            writer->write();
+            return 0;
+        } else {
+            // call specific error here
+        }
     } else if( argc == 4 ) {
         
     } else if( argc == 5 ) {
@@ -77,4 +102,5 @@ int main(int argc, char* agrv[]) {
     bashSub = bash.substr( 0, bash.rfind( '/' ) + 1 ) + "run";
     bashSub = "./" + bashSub;
     std::system(bashSub.c_str());
+    std::cout.clear();
 }
