@@ -1,5 +1,5 @@
 makem: extensions/main.cpp extensions/parser.cpp extensions/replacer.cpp extensions/largerFuncs/print.cpp 
-	g++ --std=c++2a -O3 -Wall -o run \
+	g++ --std=c++2a -O3 -Wall -o cpe \
 				extensions/main.cpp \
 				extensions/parser.cpp \
 				extensions/replacer.cpp \
