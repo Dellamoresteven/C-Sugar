@@ -64,6 +64,11 @@ int normalFunction(int x, int y) {
     return 7;
 }
 
+template <typename T, typename U >
+int normalFunctionNoParam( T a, U b ) {
+    return 7;
+}
+
 int normalVoidFunction() {
     return 7;
 }

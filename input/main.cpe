@@ -1,18 +1,10 @@
 @header
 #inc e
 
-def add( a, b, c, d ) {
-    // println();
-    printv(d,",");
-    // println("");
-    return (a + b + c);
+def int maxoffour( a,b,c,d ) {
+    return int ( std::max( std::max( a ,b ), std::max( c, d ) ) );
 }
 
-int main(){ 
-    var x = vector int;
-    x.pushv(1,2,3,4,5);
-    printv(x, ",");
-    var y = add( 1, 2, 3, x );
-    print( "\n" );
-    println(y);
+int main() {
+    maxoffour(1,2,3,4);
 }

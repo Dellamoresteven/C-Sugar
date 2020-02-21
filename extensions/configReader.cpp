@@ -4,6 +4,9 @@ void parser::ConfigReaderObject::readConfigFile() {
     char c;
     std::ifstream ffile;
     ffile.open( "config.txt" );
+    if(!ffile.is_open()){
+        std::cout << "EFAWEFGWAEGWEGEWAG\n\n";
+    }
     std::string value = "";
     std::string key = "";
     bool newKey = true;
@@ -22,6 +25,8 @@ void parser::ConfigReaderObject::readConfigFile() {
         }
     }
 }
+
+
 
 std::string parser::ConfigReaderObject::getConfig( std::string key ) {
     if ( mapper.find(key) != mapper.end() ) {

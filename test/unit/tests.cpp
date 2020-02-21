@@ -41,7 +41,7 @@ namespace tests{
     }
     
     void static runTests( std::string testName ) {
-        std::string systemCall = "./run test/unit/input/" + testName + ".cpe -t";
+        std::string systemCall = "./cpe test/unit/input/" + testName + ".cpe -t";
         system(systemCall.c_str());
         if ( ::tests::compareFiles("test/unit/input/" + testName + ".cpp", "test/unit/expected/" + testName + ".cpp") ) {
             std::cout << green << testName << " Passed" << normal << std::endl;

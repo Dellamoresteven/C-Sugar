@@ -2,7 +2,7 @@
 URL = https://github.com/Dellamoresteven/C-Sugar */
 
 // author: Steven Dellamore
-// date: 2020-2-20
+// date: 2020-2-21
 // version: 1.0.0
 
 #include <iostream>
@@ -22,32 +22,10 @@ URL = https://github.com/Dellamoresteven/C-Sugar */
 #include <string>
 
 template <typename T, typename U, typename G, typename H >
-auto add( T a, U b, G c, H d ) {
-    // println();
-    // Printing out the entire d vector with delim: ","
-    for (auto i = d.begin(); i != d.end(); ++i)
-    {
-        std::cout << *i << ",";
-    }
-    // println("");
-    return (a + b + c);
+int maxoffour( T a, U b, G c, H d ) {
+    return int ( std::max( std::max( a ,b ), std::max( c, d ) ) );
 }
 
-int main(){ 
-    // x @TODO
-    auto x = std::vector< int >();
-    x.push_back(1); // pushing 1 onto x
-    x.push_back(2); // pushing 2 onto x
-    x.push_back(3); // pushing 3 onto x
-    x.push_back(4); // pushing 4 onto x
-    x.push_back(5); // pushing 5 onto x
-    // Printing out the entire x vector with delim: ","
-    for (auto i = x.begin(); i != x.end(); ++i)
-    {
-        std::cout << *i << ",";
-    }
-    // y @TODO
-    auto y = add( 1, 2, 3, x );
-    std::cout <<  "\n" ;
-    std::cout << y << std::endl;
+int main() {
+    maxoffour(1,2,3,4);
 }

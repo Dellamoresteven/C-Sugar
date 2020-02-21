@@ -39,6 +39,10 @@ int normalFunction(int x, int y) {
     return 7;
 }
 
+def int normalFunctionNoParam(a,b) {
+    return 7;
+}
+
 int normalVoidFunction() {
     return 7;
 }
