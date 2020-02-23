@@ -3,7 +3,7 @@
 void parser::ConfigReaderObject::readConfigFile() {
     char c;
     std::ifstream ffile;
-    ffile.open( "config.txt" );
+    ffile.open( "/Users/stevendellamore/Desktop/CPLUSPLUSE/config.txt" );
     if(!ffile.is_open()){
         std::cout << "EFAWEFGWAEGWEGEWAG\n\n";
     }
@@ -32,6 +32,6 @@ std::string parser::ConfigReaderObject::getConfig( std::string key ) {
     if ( mapper.find(key) != mapper.end() ) {
         return mapper.find(key)->second;
     } else {
-        return "DNE";
+        return "// Cannot Find Config Setting";
     }
 }
