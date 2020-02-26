@@ -1,10 +1,6 @@
 @header
 #inc e
 
-def int maxoffour( a,b,c,d ) {
-    return int ( std::max( std::max( a ,b ), std::max( c, d ) ) );
-}
-
-int main() {
-    maxoffour(1,2,3,4);
+m {
+    println("Hello");
 }

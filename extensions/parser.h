@@ -129,6 +129,7 @@ namespace parser {
             void headerComment( token::TokenObject * );
             void functionDef( token::TokenObject * );
             void writeFunctionDef( FunDef, token::TokenObject * );
+            void mainReplace( token::TokenObject * );
     };
 
     class FileWriterObject {

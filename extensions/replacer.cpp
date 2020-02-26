@@ -20,6 +20,10 @@ token::TokenObject* parser::ReplacerObject::replaceTokenList() {
             /* The "#inc e" */
             parser::ReplacerObject::headerComment( newToken );
         }
+        else if( (tok == "m" && (token->peekNoSpace() == "{") ) ) {
+            /* The "#inc e" */
+            parser::ReplacerObject::mainReplace( newToken );
+        }
         else if( (tok == "#") && (token->peekNoSpace() == "inc") && (token->peekNoSpace1() == "e") ) {
             /* The "#inc e" */
             parser::ReplacerObject::replaceIncludes( newToken );

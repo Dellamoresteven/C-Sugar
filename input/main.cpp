@@ -2,7 +2,7 @@
 URL = https://github.com/Dellamoresteven/C-Sugar */
 
 // author: Steven Dellamore
-// date: 2020-2-22
+// date: 2020-2-26
 // version: 1.0.0
 
 #include <iostream>
@@ -21,11 +21,6 @@ URL = https://github.com/Dellamoresteven/C-Sugar */
 #include <iterator>
 #include <string>
 
-template <typename T, typename U, typename G, typename H >
-int maxoffour( T a, U b, G c, H d ) {
-    return int ( std::max( std::max( a ,b ), std::max( c, d ) ) );
-}
-
-int main() {
-    maxoffour(1,2,3,4);
+int main(int argc, char* argv[])  {
+    std::cout << "Hello" << std::endl;
 }
